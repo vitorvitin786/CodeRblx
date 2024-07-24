@@ -1,0 +1,255 @@
+-- Utility Functions
+local function createInstance(className, properties)
+    local instance = Instance.new(className)
+    for property, value in pairs(properties) do
+        instance[property] = value
+    end
+    return instance
+end
+
+-- GUI Elements
+local ScreenGui = createInstance("ScreenGui", {Name = "SpinGui", Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")})
+
+-- Main Frame
+local Frame = createInstance("Frame", {
+    Name = "MainFrame",
+    Size = UDim2.new(0, 250, 0, 260),
+    Position = UDim2.new(0.5, -125, 0.5, -130),
+    BackgroundColor3 = Color3.new(0.15, 0.15, 0.15),
+    BorderSizePixel = 0,
+    Parent = ScreenGui
+})
+
+-- Speed Label
+local SpeedLabel = createInstance("TextLabel", {
+    Name = "SpeedLabel",
+    Size = UDim2.new(0, 230, 0, 30),
+    Position = UDim2.new(0, 10, 0, 50),
+    BackgroundColor3 = Color3.new(0.2, 0.2, 0.2),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Speed: 1",
+    TextSize = 20,
+    Parent = Frame
+})
+
+-- Increase Speed Button
+local IncreaseButton = createInstance("TextButton", {
+    Name = "IncreaseButton",
+    Size = UDim2.new(0, 100, 0, 30),
+    Position = UDim2.new(0, 10, 0, 90),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Faster",
+    Parent = Frame
+})
+
+-- Decrease Speed Button
+local DecreaseButton = createInstance("TextButton", {
+    Name = "DecreaseButton",
+    Size = UDim2.new(0, 100, 0, 30),
+    Position = UDim2.new(0, 130, 0, 90),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Slower",
+    Parent = Frame
+})
+
+-- Toggle Spin Button
+local ToggleButton = createInstance("TextButton", {
+    Name = "ToggleButton",
+    Size = UDim2.new(0, 230, 0, 30),
+    Position = UDim2.new(0, 10, 0, 130),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Spin (Off)",
+    Parent = Frame
+})
+
+-- Minimize Button
+local MinimizeButton = createInstance("TextButton", {
+    Name = "MinimizeButton",
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(1, -50, 0, 10),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "➖",
+    Parent = Frame
+})
+
+-- Close Button
+local CloseButton = createInstance("TextButton", {
+    Name = "CloseButton",
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(1, -90, 0, 10),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "X",
+    Parent = Frame
+})
+
+-- Restore Button
+local RestoreButton = createInstance("TextButton", {
+    Name = "RestoreButton",
+    Size = UDim2.new(0, 60, 0, 30),
+    Position = UDim2.new(0.5, -30, 0, 0),
+    BackgroundColor3 = Color3.new(0.2, 0.2, 0.2),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "GUI",
+    Visible = false,
+    Parent = ScreenGui
+})
+
+-- Discord Button
+local DiscordButton = createInstance("TextButton", {
+    Name = "DiscordButton",
+    Size = UDim2.new(0, 230, 0, 30),
+    Position = UDim2.new(0, 10, 0, 170),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Discord",
+    Parent = Frame
+})
+
+-- Discord Label
+local DiscordLabel = createInstance("TextLabel", {
+    Name = "DiscordLabel",
+    Size = UDim2.new(0, 250, 0, 50),
+    Position = UDim2.new(0.5, -125, 0, 10),
+    BackgroundColor3 = Color3.new(0.15, 0.15, 0.15),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Join our Discord: https://discord.gg/ENSyRUcYc9",
+    TextSize = 18,
+    Visible = false,
+    Parent = ScreenGui
+})
+
+-- Credits Button
+local CreditsButton = createInstance("TextButton", {
+    Name = "CreditsButton",
+    Size = UDim2.new(0, 230, 0, 30),
+    Position = UDim2.new(0, 10, 0, 210),
+    BackgroundColor3 = Color3.new(0.3, 0.3, 0.3),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "Credits",
+    Parent = Frame
+})
+
+-- Credits Page
+local CreditsPage = createInstance("Frame", {
+    Name = "CreditsPage",
+    Size = UDim2.new(0, 200, 0, 100),
+    Position = UDim2.new(0, 265, 0.5, -50), -- Positioned to the right of the main GUI
+    BackgroundColor3 = Color3.new(0.2, 0.2, 0.2),
+    BorderSizePixel = 0,
+    Visible = false,
+    Parent = ScreenGui
+})
+
+local CreditsLabel = createInstance("TextLabel", {
+    Name = "CreditsLabel",
+    Size = UDim2.new(1, 0, 1, 0),
+    BackgroundColor3 = Color3.new(0.2, 0.2, 0.2),
+    TextColor3 = Color3.new(1, 1, 1),
+    Text = "FOUNDER: 5513269040/hazem\nScripter/Developer: christian24_20",
+    TextSize = 16,
+    TextWrapped = true,
+    Parent = CreditsPage
+})
+
+-- State Variables
+local spinning = false
+local spinSpeed = 1
+local isMinimized = false
+local creditsVisible = false
+
+-- Spin Toggle Functionality
+ToggleButton.MouseButton1Click:Connect(function()
+    spinning = not spinning
+    ToggleButton.Text = "Spin (" .. (spinning and "On" or "Off") .. ")"
+end)
+
+-- Speed Adjustment Functionality
+IncreaseButton.MouseButton1Click:Connect(function()
+    spinSpeed = spinSpeed + 1
+    SpeedLabel.Text = "Speed: " .. spinSpeed
+end)
+
+DecreaseButton.MouseButton1Click:Connect(function()
+    spinSpeed = math.max(1, spinSpeed - 1) -- Speed cannot go below 1
+    SpeedLabel.Text = "Speed: " .. spinSpeed
+end)
+
+-- Minimize Functionality
+MinimizeButton.MouseButton1Click:Connect(function()
+    Frame.Visible = false
+    RestoreButton.Visible = true
+    isMinimized = true
+end)
+
+RestoreButton.MouseButton1Click:Connect(function()
+    Frame.Visible = true
+    RestoreButton.Visible = false
+    isMinimized = false
+end)
+
+-- Close Functionality
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+    script:Destroy()
+end)
+
+-- Discord Button Functionality
+DiscordButton.MouseButton1Click:Connect(function()
+    DiscordLabel.Visible = true
+    wait(15)
+    DiscordLabel.Visible = false
+end)
+
+-- Credits Button Functionality
+CreditsButton.MouseButton1Click:Connect(function()
+    creditsVisible = not creditsVisible
+    CreditsPage.Visible = creditsVisible
+    CreditsButton.Text = creditsVisible and "Close Credits" or "Credits"
+end)
+
+-- Spinning Functionality
+game:GetService("RunService").RenderStepped:Connect(function()
+    if spinning then
+        local character = game.Players.LocalPlayer.Character
+        if character and character:FindFirstChild("HumanoidRootPart") then
+            character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(spinSpeed), 0)
+        end
+    end
+end)
+
+-- Draggable GUI Functionality
+local dragging, dragInput, dragStart, startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    CreditsPage.Position = UDim2.new(startPos.X.Scale + 1, startPos.X.Offset + delta.X + 265, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+local function onInputBegan(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = Frame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end
+
+local function onInputChanged(input)
+    if dragging then
+        update(input)
+    end
+end
+
+Frame.InputBegan:Connect(onInputBegan)
+Frame.InputChanged:Connect(onInputChanged)
